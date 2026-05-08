@@ -1,9 +1,18 @@
-Data Science - Monster Energy Market Analysis
+# Data Science - Coffee Analysis
 
-This project was going to look into the Monster Energy Company's financial performance with publicly available information in the form of Annual Reports.
+## Data
+Data sources:
+    https://www.kaggle.com/datasets/michals22/coffee-dataset/data?select=Coffee_domestic_consumption.csv
 
-My goal with this was to look into past performance and compare trends and visualise how they have changed over time.
+    https://www.kaggle.com/datasets/PromptCloudHQ/world-happiness-report-2019
 
-My reasoning behind this topic of choice was that energy drinks are a popular drink among students and many young adults. Although I can guess as to why this is (nice flavours, high caffeine content, advertising), I wanted to look at the past performance and history of Monster (my personal favourite) and other similar products.
+The first leads to a web page with several different versions of csv files with coffee related statistics between 1990 and 2019. I have included these in my github submission under data/raw. 
+The second link leads to a similar web page with a version of the 2019 World Happiness Report in a csv file. This has also been included under data/raw.
 
-Unfortunately, after a night of committed research I was unable to find a safe way to achieve this. Funnily enough most companies don't want important data to be taken and easily made use of.
+
+## Src
+Under src is a number of scripts that I have used to clean and tidy the data, 'organise_coffee.py' and 'sort_happiness.py' respectively. As they do distinctly different tasks it felt apt to name one organise and one sort.
+The script 'merge_coffee_happiness.py' does exactly that. It combines the consumption statistic with the happiness for the respective countries and allows for further tools to be used. The next script I mention 'regression_happiness_on_consumption.py' is one of these tools and provides both a regression and correlation value. See the blog for further information.
+
+## Blog
+This is a pretty straightforward file just containing the blog. A more informal explanation and analysis of the code I've developed.
