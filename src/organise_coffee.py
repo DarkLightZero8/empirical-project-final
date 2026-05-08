@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 
+#List of all the coffee data
 INPUT_FILES = [
     "coffee_domestic_consumption.csv",
     "coffee_production.csv",
@@ -16,6 +17,8 @@ os.makedirs(OUT_DIR, exist_ok=True)
 
 for file in INPUT_FILES:
     df = pd.read_csv(RAW_DIR + file)
+
+    #Rearranging and organising the format to make it easier to work with.
 
     df.columns = [c.strip() for c in df.columns] 
     df = df.rename(columns={
@@ -43,8 +46,8 @@ for file in INPUT_FILES:
         value_name="value"
     )
 
-    #Changing year format to make it neater. Some have the form 2012/13.
-    #This can introduce inaccuracy in terms of time but it is neater.
+    # Changing year format to make it neater. Some have the form 2012/13.
+    # This can introduce inaccuracy in terms of time but it is neater.
 
     if "/" in year_cols[0]:  
         long_df["year"] = long_df["year_raw"].str.slice(0, 4).astype(int)
@@ -54,8 +57,8 @@ for file in INPUT_FILES:
     # Drop missing values
     long_df = long_df.dropna(subset=["value"])
 
-    # Save cooked file. Cause the original was raw. Could say roasted cause
-    # it's coffee but that seems worse. Latte maybe?
+    #Save is a cooked file. Cause the original was raw. Could say roasted cause
+    #it's coffee but that seems worse. Latte maybe?
     out_name = file.replace(".csv", "_cooked.csv")
     long_df.to_csv(OUT_DIR + out_name, index=False)
 

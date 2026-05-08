@@ -1,5 +1,7 @@
 import pandas as pd
 
+#Just combining the two datasets into a single format
+
 coffee = pd.read_csv("data/cooked/coffee_domestic_consumption_cooked.csv")
 happiness = pd.read_csv("data/cleaned/happiness_2019_cleaned.csv")
 
